@@ -308,7 +308,7 @@ function App() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-28 right-4 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-50 animate-fade-in"
+          className="fixed bottom-20 right-4 bg-red-600 hover:bg-red-700 text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all z-50 animate-fade-in"
           aria-label="Kthehu në krye"
         >
           <ArrowUp className="w-5 h-5" />
