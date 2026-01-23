@@ -47,7 +47,7 @@ function App() {
 
   const restaurantName = "Elan Restaurant";
   const tagline = "Shije që nuk harrohet";
-  const whatsappNumber = "+355123456789";
+  const whatsappNumber = "+38345757823";
 
   const menuSections: MenuSection[] = [
     {
