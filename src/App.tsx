@@ -52,7 +52,7 @@ function App() {
   const menuSections: MenuSection[] = [
     {
       id: 'ushqime-kryesore',
-      title: 'Ushqime Kryesore',
+      title: 'Mengjesi',
       icon: <Pizza className="w-5 h-5" />,
       items: [
         { name: 'Tavë Kosi', description: 'Mish qengji me kos dhe oriz basmati', price: '9.50', isSpecial: true },
