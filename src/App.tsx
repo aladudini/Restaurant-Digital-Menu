@@ -315,16 +315,6 @@ function App() {
         </button>
       )}
 
-      {/* WhatsApp Floating Button */}
-      <button
-        onClick={handleWhatsAppOrder}
-        className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all z-50 flex items-center gap-2 font-bold text-sm"
-        aria-label="Porosit në WhatsApp"
-      >
-        <MessageCircle className="w-6 h-6" />
-        <span>Porosit</span>
-      </button>
-
       {/* Footer */}
       <footer className="bg-gradient-to-r from-gray-900 via-red-900 to-gray-900 text-white py-12 px-4 text-center border-t-4 border-red-600">
         <div className="max-w-2xl mx-auto">
