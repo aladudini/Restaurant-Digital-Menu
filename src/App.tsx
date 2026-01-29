@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Pizza, Salad, Sandwich, UtensilsCrossed, Cake, Coffee, ChevronDown, MessageCircle, Flame, ArrowUp } from 'lucide-react';
+import { Pizza, Salad, Sandwich, UtensilsCrossed, Cake, Coffee, ChevronDown, MessageCircle, Flame, ArrowUp, EggFried, Soup, Popcorn, ChefHat, Drumstick, Beef, } from 'lucide-react';
 import Logo from './img/images-removebg-preview.png';
 
 interface MenuItem {
   name: string;
   description?: string;
   price: string;
+  secondaryPrice?: string;
   isSpecial?: boolean;
 }
 
@@ -47,31 +48,48 @@ function App() {
 
   const restaurantName = "Elan Restaurant";
   const tagline = "Shije që nuk harrohet";
-  const whatsappNumber = "+38345757823";
+  const whatsappNumber = "+355123456789";
 
   const menuSections: MenuSection[] = [
     {
-      id: 'ushqime-kryesore',
-      title: 'Ushqime Kryesore',
-      icon: <Pizza className="w-5 h-5" />,
+      id: 'mengjesi',
+      title: 'Mëngjesi',
+      icon: <EggFried className="w-5 h-5" />,
       items: [
-        { name: 'Tavë Kosi', description: 'Mish qengji me kos dhe oriz basmati', price: '9.50', isSpecial: true },
-        { name: 'Qofte të Fërguara', description: 'Qofte tradicionale me spec dhe domate', price: '7.00' },
-        { name: 'Byrek me Spinaq', description: 'Byrek i freskët me spinaq dhe djathë', price: '5.50' },
-        { name: 'Fergese Tirane', description: 'Mish viçi me spec dhe domate', price: '8.50' },
-        { name: 'Pule me Oriz', description: 'Gjoks pule i grilluar me oriz me erëza', price: '8.00' },
+        { name: 'Omlet Natyral', description: 'Domate, tranguj, long', price: '2.50' },
+        { name: 'Omlet Proshutë', description: 'Proshutë, domate, tranguj, long', price: '2.70' },
+        { name: 'Omlet Vegjetarian', description: 'Perime të freskëta, domate, tranguj, long', price: '2.70' },
+        { name: 'Omlet MIX', description: 'Proshutë, suxhuk, këpurdha, domate, tranguj, long', price: '3.20' },
+        { name: 'Mëngjes Anlgez', description: 'Bukë tost, vezë, virshlle, proshtuë, suxhuk, fasule, domatina', price: '3.70' },
+        { name: 'Mëngjes ELAN', description: 'Pogaqe, vezë, ajvar, long, suxhuk, proshutë, djath, kaçkavall, xhem', price: '3.90' },
+        { name: 'Llokuma', description: 'ajvar, xhem, long', price: '2.50' },
+        { name: 'Pogaqe dhe long të shtëpisë', description: '', price: '2.50' },
+        { name: 'Specë në mazë', description: '', price: '2.70' },
       ]
     },
     {
-      id: 'fastfood',
-      title: 'Fast Food',
-      icon: <Sandwich className="w-5 h-5" />,
+      id: 'supa',
+      title: 'Supë Ditore',
+      icon: <Soup className="w-5 h-5" />,
       items: [
-        { name: 'Hamburger Premium', description: 'Mish viçi i freskët, salce speshale', price: '6.50' },
-        { name: 'Cheeseburger Deluxe', description: 'Hamburger me djathë cheddar të ngrohtë', price: '7.00' },
-        { name: 'Panini Pule', description: 'Pule e grilluar me perime të freskëta', price: '6.00' },
-        { name: 'Hot Dog Tradicional', description: 'Suxhuk me salce speciale dhe qepë', price: '4.50' },
-        { name: 'Patate të Skuqura', description: 'Porcion i madh patate të skuqura të ngrohta', price: '3.50' },
+        { name: 'Supë Pule', description: '', price: '1.90' },
+        { name: 'Supë me perime', description: '', price: '1.90' },
+        { name: 'Supë me domate', description: '', price: '2.10' },
+        { name: 'Supë Viçi', description: '', price: '2.10' },
+      ]
+    },
+    {
+      id: 'snacks',
+      title: 'Snacks',
+      icon: <Popcorn className="w-5 h-5" />,
+      items: [
+        { name: 'Chicken Finger', description: 'Mish pule në brezëll, pomfrit, sweet chilly sos, sos mix', price: '4.70'},
+        { name: 'Krahë pule', description: 'Krahë pule, pomfrit, sos mix, barbeque sos', price: '4.20' },
+        { name: 'Chicken nuggets', description: 'Copa pule, pomfrit, sos mix, barbeque sos', price: '4.50' },
+        { name: 'Këpurdha me djath në furrë', description: 'Këpurdha të freskëta, djath dhe pesto', price: '3.50' },
+        { name: 'Antipastë e ngrohtë', description: 'Mish viçi, nugeta pule, këpurdha, domatina, proshutë, suxhuk, sos barbeque, sweet chilly sos', price: '8.90' },
+        { name: 'Antiapstë e ftohtë', description: 'Sos domatesh, mish viçi, spec, qepë, këpurdha, kaçkavall, këpurdha, pomfrit', price: '4.90' },
+        { name: 'BRUSKETA', description: 'Domate, hudhër, origano, ullinjë dhe pesto', price: '2.90' },
       ]
     },
     {
@@ -79,50 +97,109 @@ function App() {
       title: 'Sallata të Freskëta',
       icon: <Salad className="w-5 h-5" />,
       items: [
-        { name: 'Sallate Greke', description: 'Domate, kastravec, ullinj, djathë feta', price: '6.00' },
-        { name: 'Sallate Jeshile', description: 'Marule, ruke, spinaq me vaj ulliri premium', price: '5.50' },
-        { name: 'Sallate Caesar', description: 'Marule romaine, pule, parmesan, krutonet', price: '7.50' },
-        { name: 'Sallate Stine', description: 'Domate, kastravec, qepë, spec me vaj ulliri', price: '5.00' },
+        { name: 'Sallatë Shope', description: 'Tranguj, domate, qepë, djathë', price: '2.50' },
+        { name: 'Sallatë Greke', description: 'Tranguj, domate, specë, uulinjë, djath', price: '2.50' },
+        { name: 'Sallatë MIX', description: 'Sallatë e gjelbër, lakër e kuqe/bardhë, domate, tranguj, specë, ullinjë ', price: '2.90' },
+        { name: 'Sallatë Tuna', description: 'Sallatë e gjelbër, tranguj, domate, specë, qepë, misër, vezë, tuna', price: '3.50' },
+        { name: 'Sallatë Pule', description: 'Sallatë e gjelbër, tranguj, domate, specë, qepë, djath, mish pule', price: '4.00' },
+        { name: 'Sallatë ELAN', description: 'Sallatë e gjelbër, tranguj, domate, specë, proshutë, kaçkavall, djath, sos permezan', price: '4.00' },
       ]
     },
     {
-      id: 'specialitete-shtepie',
-      title: 'Specialitete të Shtëpisë',
-      icon: <Flame className="w-5 h-5" />,
+      id: 'samun',
+      title: 'Samun',
+      icon: <Sandwich className="w-5 h-5" />,
       items: [
-        { name: 'Biftek me Spec', description: 'Biftek viçi i matur me spec të kuq dhe të gjelbër', price: '14.00', isSpecial: true },
-        { name: 'Peshk i Pjekur', description: 'Koran i freskët me perime dhe limon', price: '15.50' },
-        { name: 'Midhje me Erëza', description: 'Midhje të detit me salcë domate dhe hudhra', price: '12.00' },
-        { name: 'Pasta Carbonara', description: 'Pasta me krem, panceta dhe parmesan të freskët', price: '9.50' },
-        { name: 'Risotto me Kërpudha', description: 'Oriz arborio me kërpudha të freskëta dhe parmesan', price: '10.00' },
+        { name: 'Samun proshutë', description: 'Proshutë, kaçkavall, long shtëpie', price: '2.90' },
+        { name: 'Samun suxhuk', description: 'Suxhuk, kaçkavall, long shtëpie', price: '2.90' },
+        { name: 'Samun MIX', description: 'Proshutë, suxhuk, këpurdha, kaçkavall dhe long shtëpie', price: '3.20' },
+        ]
+    },
+    {
+      id: 'pasta',
+      title: 'Pasta',
+      icon: <ChefHat className="w-5 h-5" />,
+      items: [
+        { name: 'Bolonez', description: 'Mish viçi, sos domatesh', price: '4.00' },
+        { name: 'Karbonara', description: 'Proshutë, krem sos, vezë, parmezan', price: '4.00' },
+        { name: 'Napoli', description: 'Sos domatesh, spec, qepë, hudhër, dhe magdanoz', price: '4.00' },
+        { name: 'Vegjetariane', description: 'Prime të freskëta dhe sos domatesh', price: '3.80' },
+        { name: 'Frutti di mare', description: 'Fruta deti, hudhër, qepë dhe spec', price: '4.70' },
+        { name: 'Makarona pule pesto', description: 'Mish pule, këpurdha të freskëta, sos pesto', price: '4.70' },
+        { name: 'Makaronë ELAN', description: 'Mish viçi, spec, qepë, këpurdha, sos alfredo, sos, kaçkavall', price: '4.50' },
+        { name: 'Llazanje', description: 'Mish viçi, beshamell, kaçkavall dhe sos domatesh', price: '4.50' },
       ]
     },
     {
-      id: 'embelsira',
-      title: 'Ëmbëlsira',
-      icon: <Cake className="w-5 h-5" />,
+      id: 'rizoto',
+      title: 'Rizoto',
+      icon: <Soup className="w-5 h-5" />,
       items: [
-        { name: 'Bakllava', description: 'Bakllava tradicionale me arra dhe mjaltë të rrallë', price: '4.50' },
-        { name: 'Trilece', description: 'Ëmbëlsirë me tre lloje qumështi dhe mjalti', price: '5.00' },
-        { name: 'Tiramisu', description: 'Ëmbëlsirë italiane me kafe dhe mascarponë', price: '5.50' },
-        { name: 'Akullore', description: 'Tre topa akullore me aromë në zgjedhje', price: '4.00' },
-        { name: 'Sufle me Çokollatë', description: 'Sufle i ngrohtë çokollate me akullore vanile', price: '6.00' },
+        { name: 'Rizoto pule', description: 'oriz, mish pule, sos curry ose këpurdhave', price: '3.90' },
+        { name: 'Rizoto pule me perime', description: 'mish pule, perime, oriz', price: '4.20' },
+        { name: 'Rizoto vegjetariane', description: 'oriz dhe perime', price: '3.90' },
+        { name: 'Burrito pule', description: 'tortilla, mish pule, spec i kuq, qepë, spec i gjelbër, sos mix, oriz, sallat', price: '3.50' },
+        { name: 'Burrito Viçi', description: 'tortilla, mish viçi, spec i kuq, qepë, spec i gjelbër, sos mix, oriz, sallat', price: '5.50' },
       ]
     },
     {
-      id: 'pije-freskuese',
-      title: 'Pije & Freskuese',
-      icon: <Coffee className="w-5 h-5" />,
+      id: 'pizza',
+      title: 'Pizza',
+      icon: <Pizza className="w-5 h-5" />,
       items: [
-        { name: 'Kafe Espresso', description: 'Kafe e fortë italiane e freskët', price: '2.00' },
-        { name: 'Cappuccino', description: 'Espresso me qumësht dhe shkumë të përsosur', price: '2.50' },
-        { name: 'Lëng Natyral Frutash', description: 'Portokalli, mollë ose pjeshkë të freskëta', price: '3.50' },
-        { name: 'Coca Cola / Fanta', description: 'Pije freskuese - 330ml', price: '2.50' },
-        { name: 'Ujë Mineral', description: 'Ujë mineral të ftohtë - 500ml', price: '1.50' },
-        { name: 'Verë e Kuqe / e Bardhë', description: 'Verë e zgjedhur - Gotë 150ml', price: '4.50' },
-        { name: 'Birrë Vendase', description: 'Birrë shqiptare premium - 330ml', price: '3.00' },
+        { name: 'Pizza margarita', description: 'sos domatesh, kaçkavall', price: '3.00 ', secondaryPrice: '4.00' },
+        { name: 'Pizza proshutë', description: 'sos domatesh, kaçkavall, proshutë', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza suxhuk', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza fungi', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza tuna', description: 'sos domatesh, kaçkavall, tuna', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza vegjetariane', description: 'sos domatesh, kaçkavall, perime të freskëta', price: '3.50 ', secondaryPrice: '4.80' },
+        { name: 'Pizza frutti di mare', description: 'sos domatesh, kaçkavall, fruta deti', price: '4.50 ', secondaryPrice: '5.50' },
+        { name: 'Pizza ELAN', description: 'sos domatesh, kaçkavall, proshutë e terur, suxhuk, kërpudha, vezë dhe spec', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza Familjare', description: '60cm', price: '13.90 '},
+        
       ]
-    }
+    },
+    {
+      id: 'hamburger',
+      title: 'Hamburger',
+      icon: <Sandwich className="w-5 h-5" />,
+      items: [
+        { name: 'Hamburger classic', description: 'Pleskavic, sallat e gjelbër, tranguj, domate, sos, pomfrit', price: '3.00' },
+        { name: 'Hamburger ELAN', description: 'Pleskavic, vezë, proshutë, cheese, sallat e gjelbër, tranguj, domate, sos, pomfrit', price: '3.50' },
+        { name: 'Double burger', description: '2x pleskavic, vezë, proshutë, cheese, sallat e gjelbër, tranguj, domate, sos, pomfrit', price: '5.00' },
+        { name: 'Cheese burger', description: 'pleskavic, cheese, pomfrit, sos', price: '3.00' },
+        { name: 'Crispy chicken burger', description: 'Crispy chicken, domate, tranguj, sos, pomfrit', price: '3.00' },
+        { name: 'Crispy fish burger', description: 'Crispy fish, domate, tranguj, sallatë e gjelbër, sos, pomfrit', price: '4.00' },
+      ]
+    },
+    {
+      id: 'mish-pule',
+      title: 'Mish Pule',
+      icon: <Drumstick className="w-5 h-5" />,
+      items: [
+        { name: 'Fileto pule', description: 'Perime të freskëta, oriz, sos dhe pomfrit', price: '4.50' },
+        { name: 'Pulë indiane', description: 'Perime të freskëta, oriz, sos curry dhe pomfrit', price: '4.80' },
+        { name: 'Pulë meksikane', description: 'Perime të freskëta, oriz, sos meksikan dhe pomfrit', price: '4.80' },
+        { name: 'Gorden blue', description: 'Msih pule në prezëll, perime të freskëta, proshutë, oriz, sos', price: '5.50' },
+        { name: 'Schnitzel pule', description: 'Mish pule në prezëll, pomfrit, oriz, sos dhe lemon', price: '5  .00' },
+      ]
+    },
+    {
+      id: 'mishrat',
+      title: 'Mishrat',
+      icon: <Beef className="w-5 h-5" />,
+      items: [
+        { name: 'Ramstek viçi', description: 'Pyre patate, perime, sos shtëpie', price: '7.70' },
+        { name: 'Biftek viçi', description: 'Pyre patate, perime, sos shtëpie', price: '12.50' },
+        { name: 'Biftek në tavë', description: 'Biftek, këprudha, spec, sos shtëpie', price: '12.50' },
+        { name: 'Muskuj viçi', description: 'Pyre patate, perime, sos shtëpie', price: '7.90' },
+        { name: 'Kombinim mishi', description: 'Pyre patate, perime, sos shtëpie', price: '9.00' },
+        { name: 'Pleskavicë ELAN', description: 'Pleskavicë 200gr, domate, tranguj, sos këpurdhash', price: '4.50' },
+        { name: 'Pleskavicë e mbushur', description: 'Pleskavicë, proshutë, kaçkavall, domate, tranguj, sos këpurdhash', price: '4.90' },
+        { name: 'Qofte me sos dhe hudhër', description: '6 qofte, sos djegës dhe hudhër', price: '4.50' },
+        { name: 'Qofte në kajmak', description: '6 qofte në mazë', price: '4.50' },
+      ]
+    },
   ];
 
   useEffect(() => {
@@ -169,11 +246,6 @@ function App() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleWhatsAppOrder = () => {
-    const message = encodeURIComponent(`Përshëndetje! Dëshiroj të porosit nga ${restaurantName}.`);
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
   return (
@@ -295,9 +367,11 @@ function App() {
                     </div>
                     <div className="text-right">
                       <span className="text-2xl font-black text-red-600">€{item.price}</span>
+                      <span className="text-2xl font-black text-red-600">€{item.secondaryPrice}</span>
+
                     </div>
                   </div>
-                </div>
+                </div>  
               ))}
             </div>
           </section>
@@ -325,11 +399,6 @@ function App() {
           <p className="text-orange-100 mb-6 text-lg font-light">{tagline}</p>
           <p className="text-gray-300 mb-4 text-base">Ju faleminderit për vizitën</p>
           <p className="text-gray-400 text-sm">Skanoni sërish kodin QR për menunë</p>
-          <div className="mt-6 flex justify-center gap-4">
-            <div className="text-center">
-              <p className="text-orange-300 text-sm font-semibold">Nyje në Instagram</p>
-            </div>
-          </div>
         </div>
       </footer>
     </div>
