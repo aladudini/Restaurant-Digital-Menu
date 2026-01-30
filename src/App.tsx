@@ -147,14 +147,14 @@ function App() {
       title: 'Pizza',
       icon: <Pizza className="w-5 h-5" />,
       items: [
-        { name: 'Pizza margarita', description: 'sos domatesh, kaçkavall', price: '3.00 ', secondaryPrice: '4.00' },
-        { name: 'Pizza proshutë', description: 'sos domatesh, kaçkavall, proshutë', price: '4.00 ', secondaryPrice: '5.00' },
-        { name: 'Pizza suxhuk', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00' },
-        { name: 'Pizza fungi', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00' },
-        { name: 'Pizza tuna', description: 'sos domatesh, kaçkavall, tuna', price: '4.00 ', secondaryPrice: '5.00' },
-        { name: 'Pizza vegjetariane', description: 'sos domatesh, kaçkavall, perime të freskëta', price: '3.50 ', secondaryPrice: '4.80' },
-        { name: 'Pizza frutti di mare', description: 'sos domatesh, kaçkavall, fruta deti', price: '4.50 ', secondaryPrice: '5.50' },
-        { name: 'Pizza ELAN', description: 'sos domatesh, kaçkavall, proshutë e terur, suxhuk, kërpudha, vezë dhe spec', price: '4.00 ', secondaryPrice: '5.00' },
+        { name: 'Pizza margarita', description: 'sos domatesh, kaçkavall', price: '3.00 ', secondaryPrice: '4.00€' },
+        { name: 'Pizza proshutë', description: 'sos domatesh, kaçkavall, proshutë', price: '4.00 ', secondaryPrice: '5.00€' },
+        { name: 'Pizza suxhuk', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00€' },
+        { name: 'Pizza fungi', description: 'sos domatesh, kaçkavall, këpurdha të freskëta', price: '4.00 ', secondaryPrice: '5.00€' },
+        { name: 'Pizza tuna', description: 'sos domatesh, kaçkavall, tuna', price: '4.00 ', secondaryPrice: '5.00€' },
+        { name: 'Pizza vegjetariane', description: 'sos domatesh, kaçkavall, perime të freskëta', price: '3.50 ', secondaryPrice: '4.80€' },
+        { name: 'Pizza frutti di mare', description: 'sos domatesh, kaçkavall, fruta deti', price: '4.50 ', secondaryPrice: '5.50€' },
+        { name: 'Pizza ELAN', description: 'sos domatesh, kaçkavall, proshutë e terur, suxhuk, kërpudha, vezë dhe spec', price: '4.00 ', secondaryPrice: '5.00€' },
         { name: 'Pizza Familjare', description: '60cm', price: '13.90 '},
         
       ]
@@ -366,8 +366,8 @@ function App() {
                       )}
                     </div>
                     <div className="text-right">
-                      <span className="text-2xl font-black text-red-600">€{item.price}</span>
-                      <span className="text-2xl font-black text-red-600">€{item.secondaryPrice}</span>
+                      <span className="text-2xl font-black text-red-600">{item.price}€</span>
+                      <span className="text-2xl font-black text-red-600">{item.secondaryPrice}</span>
 
                     </div>
                   </div>
